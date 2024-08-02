@@ -29,8 +29,6 @@ if (localStorage.getItem('reloadNeeded') === 'true') {
 }
 
 
-
-
 // -------------- Функции для работы скрипта --------------
 
 function check_pamams() {
@@ -53,7 +51,9 @@ function check_pamams() {
 
 
 function loadHTMLFile(url, callback) {
-  /*Функция для записи объекта в файл*/
+  /*Функция для записи объекта в файл, 
+  принимает url: string - ссылка на файл, с которого необходимо взять объект, callback: function - функция для создания объекта. 
+  Функция возвращает undefined*/
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -130,8 +130,8 @@ function move_figures(coord_x, coord_y, fig, speed) {
 }
 
 
-// Функцию запускает анимаци. Ничего не принимает. Возвращает undefined.
 function start_show(speed) {
+  // Функцию запускает анимаци. Ничего не принимает. Возвращает undefined.
   var svgs = document.getElementsByTagName('svg');    // Получение всех SVG объектов
   for (let svg of svgs) {
     // Выбор начальной точки старта в зависимости от SVG-фигуры (ножницы, камень или бумага)
@@ -148,10 +148,9 @@ function start_show(speed) {
 }
 
 
-// Функция для проверки столкновения фигур
 function checkCollision(figure1, figure2) {
   /* Функция для проверки столкновения фигур 
-  figure1, figure2 - объекты HTML
+  figure1, figure2 - объекты HTML (object)
   Функция возвращает bool значение true or false*/
   var rect1 = figure1.getBoundingClientRect();
   var rect2 = figure2.getBoundingClientRect();
@@ -164,7 +163,7 @@ function checkCollision(figure1, figure2) {
 
 function changeFigure(figure1, figure2) {
   /* Функция для изменения фигуры при столкновении 
-  figure1, figure2 - объекты HTML
+  figure1, figure2 - объекты HTML (object)
   Возвращает undefined*/
   let currentId1 = figure1.getAttribute('id');  // Взятие id первого объекта
   let currentId2 = figure2.getAttribute('id');  // Взятие id второго объекта
@@ -233,7 +232,7 @@ function handleCollisions() {
 
 function updateCounts(one_time=false) {
   /* Функция для подсчета объектов. 
-  one_time - для установки значений при первичной инициализации объектов
+  one_time - дополнительные параметр для установки значений при первичной инициализации объектов (bool)
   функция возвращает undefined
   */
   const elements = document.querySelectorAll('.scissors, .stone, .papper');  // получение объектов
