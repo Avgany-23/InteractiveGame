@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet", type="text/css" href="style.css">
+  <title>Game</title>
+</head>
+<html>
+<body>
+  <div class="main-block">
+    <form onsubmit="handleSubmit(event);">
+      <div class="info">
+        <ul>
+          <li>
+            <label>
+              <ul>
+                <li class="description">speed objects</li>
+                <li><input class="field" type="number" name="speedObjects" value="5" min="1" max="15"></li>
+              </ul>
+            </label>
+          </li>
+          <li>
+            <label>
+              <ul>
+                <li class="description">quantity scissors</li>
+                <li><input class="field" type="number" name="quantityScissors" value="5" min="1" max="30"</li>
+              </ul>
+            </label>
+          </li>
+          <li>
+            <label>
+              <ul>
+                <li class="description">quantity stone</li>
+                <li><input class="field" type="number" name="quantityStone" value="5" min="1" max="30"></li>
+              </ul>
+            </label>
+          </li>
+          <li>
+            <label>
+              <ul>
+                <li class="description">quantity paper</li>
+                <li><input class="field" type="number" name="quantityPaper" value="5" min="1" max="30"></li>
+              </ul>
+            </label>
+          </li>
+          <li>
+            <button id='button-main' type="submit">start</button>
+          </li>
+        </ul>
+    </form>
+  </div>
+  <div class="main_window" id="game_windowID">
+    <ul class="count">
+      <li>stone: <span id="stoneCount"></span></li>
+      <li>paper: <span id="paperCount"></span></li>
+      <li>scissors: <span id="scissorsCount"></span></li>
+    </ul>
+    <div class="game_window">
+    </div>
+    <script src="main.js"></script>
+  </div>
+</body>
+</html>
